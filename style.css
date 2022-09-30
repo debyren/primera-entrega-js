@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+
+.bg-blue{
+    background-color: #043263;
+    position: fixed;
+    width: 100%;
+    padding: 10px ;
+}
+.letra{
+    color: rgb(255, 255, 255);
+}
+
+.titulo{
+    margin-top: 10%;
+}
+
+.botoni{
+    width: 600px;
+}
+.btn-lights{
+    background-color: rgb(228, 228, 228);
+    width: 105px;
+    height: 50px;
+    border: none;
+    color: #043263;
+}
+
+.cuadro-renta{
+    width: 600px;
+}
+.renta{
+    padding: 20px;
+}
+
+.final-plazo{
+color:#2c3e50 ;
+}
+.obtener-rentas{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.btn-continuar{
+    background-color: rgb(93, 209, 255);
+    border: none;
+    width: 150px;
+    height: 50px;
+    color: white;
+}
+
+footer{
+    background-color: #043263;
+    color: white;
+}
+
+.footers{
+    
+    margin-left: 30px;
+    font-size: small;
+}
