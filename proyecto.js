@@ -1,24 +1,29 @@
 
-
 function plazoFijo (numero, dias){
+    this.numero = numero; 
+    this.dias = dias;
     console.log (dias)
-    switch (dias){
-        case 30:
-        return (numero * 75 /100 / 12 + numero);
-        break;
-        case 60:
-        return (numero * 75 / 100 /6 + numero);
-        break;
-        case 90:
-        return (numero * 75 / 100 /12 * 3 + numero);
-        break;
-        default:
-        return 0;
-        break;
-    }
-
+        switch (dias){
+            case 30:
+            return (numero * 75 /100 / 12 + numero);
+            break;
+            case 60:
+            return (numero * 75 / 100 /6 + numero);
+            break;
+            case 90:
+            return (numero * 75 / 100 /12 * 3 + numero);
+            break;
+            default:
+            return 0;
+            break;
+        }
 }
 
+//cantidad de
+let plazoEnDias = [30, 60, 90]
+plazoEnDias.forEach ((n) =>{
+    console.log(n)
+})
 
 let numero1 = parseInt(prompt("ingrese el importe"))
 while(numero1 < 1000){
