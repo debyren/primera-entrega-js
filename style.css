@@ -31,7 +31,9 @@
 }
 
 .cuadro-renta{
+    margin-left: 0%;
     width: 600px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 .renta{
     padding: 20px;
@@ -44,6 +46,7 @@
     padding-left: 17px;
 
 }
+
 .final-plazo{
 color:#2c3e50 ;
 }
@@ -71,4 +74,23 @@ footer{
     
     margin-left: 30px;
     font-size: small;
+}
+@media screen and (max-width: 400px) {
+    .titulo{
+        margin-top: 30%;
+    width: 250px;
+        flex-wrap: wrap;
+    }
+    .cuadro-renta{
+        width: 350px; 
+    }
+    .imagen{
+        display: none;
+    }
+    .tna{
+        font-size: 10px;
+    }
+    .porcentaje{
+        font-size: 15px;
+    }
 }
