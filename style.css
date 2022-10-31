@@ -27,6 +27,7 @@
     height: 50px;
     border: none;
     color: #043263;
+    
 }
 
 .cuadro-renta{
@@ -35,7 +36,14 @@
 .renta{
     padding: 20px;
 }
+.monto{
+    
+    color: #004481;
+    font-size: 42px;
+    position: relative;
+    padding-left: 17px;
 
+}
 .final-plazo{
 color:#2c3e50 ;
 }
