@@ -17,11 +17,12 @@
     intereses.innerHTML = "$" + interes 
    const meses = tiempo(tiempo.value)
    hastaEl.innerHTML = meses
-
+  
    localStorage.setItem("interesGanado", interes)
     localStorage.setItem("tiempoInvertido", meses )
     console.log(interes)
     console.log(meses)
+    
  })
  
 
@@ -51,6 +52,8 @@
     resultadoFinal = monto * (Math.pow(1+6.25/100, dias30)*6.25/100)/(Math.pow(1+6.25/100, dias30)-1);
    
     resultado.append("$" + resultadoFinal )
+    localStorage.setItem("ingresoMonto", monto)
+    console.log(monto)
     intereses = resultadoFinal - monto
    
     return intereses 
@@ -93,6 +96,8 @@
         let resultadoFinal = 0
         resultadoFinal = monto * (Math.pow(1+12.5/100, dias60)*12.5/100)/(Math.pow(1+12.5/100, dias60)-1);
         resultado.append("$" + resultadoFinal)
+        localStorage.setItem("ingresoMonto", monto)
+    console.log(monto)
         intereses = resultadoFinal - monto
     return intereses
 
@@ -134,9 +139,10 @@ function plazoFijo3(monto, dias90, intereses){
     let resultadoFinal = 0
     resultadoFinal = monto * (Math.pow(1+18.75/100, dias90)*18.75/100)/(Math.pow(1+18.75/100, dias90)-1);
     resultado.append( "$" + resultadoFinal)
-   
+    localStorage.setItem("ingresoMonto", monto)
+    console.log(monto)
     intereses = resultadoFinal - monto
     return intereses
     }
-    
-  
+
+
