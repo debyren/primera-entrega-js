@@ -1,5 +1,6 @@
 
-//lista desplegable de cuentas
+//LISTA DESPLEGABLE DE CUENTAS
+
 const lista = document.getElementById('listaCuentas')
 
     fetch('/cuentas.json')
@@ -19,9 +20,9 @@ const lista = document.getElementById('listaCuentas')
                 }
         }) 
 
+
+//LISTA DE DONDE SE ACREDITARA EL PLAZO FIJO
 let acreditaciones = document.getElementById('opcionAcreditacion')
-
-
 
     fetch('/acreditacion.json')
     .then( (response) => {
@@ -42,52 +43,22 @@ let acreditaciones = document.getElementById('opcionAcreditacion')
 })
 
 
- 
+//RECUPERO EL MONTO DE LOCALSTORAGE
+let importes = document.getElementById("importe")
+importes.value = JSON.parse(localStorage.getItem('ingresoMonto'))
 
 
+let botonContinuar = document.getElementById('botonCalcular')
 
-    let importes = document.getElementById("importe")
-    let mont = localStorage.getItem('ingresoMonto')
-    
-    importes.innerHTML = mont
-
-   console.log(mont)
-
-
-// importes.innerHTML(mont)
-
-
-
-
-
-// importes.append(importeIngresado);
-
-// function agregar(){
-
-
-// var
-//  apellido = document.getElementById('apellido').value;
-
-// var
-//  sexo = document.getElementById('sexo').value;
-
-// var
-//  textarea = document.getElementById('texto');
-
-
-// if
-// (nombre == ''|| apellido == '' || sexo == ''){
-
-// alert
-// (
-// 'todos los campos son obligatorios'
-// );
-// }
-// else
-// {textarea.innerHTML = nombre+','+apellido+','+sexo;}
+botonContinuar.addEventListener('click', () =>{
+    Swal.fire({
+        title: 'Su plazo fijo ha sido constituido',
+        
+        icon: 'success',
+        confirmButtonText: 'OK'
+      })
+})
 
 
 
 
-
-// }

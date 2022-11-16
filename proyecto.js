@@ -1,5 +1,7 @@
 
 
+//CAPTURO LOS ID'S DEL HTML
+
   let monto = document.getElementById('ingresoMonto')
   let dias30 = document.getElementById('30dias') 
   let dias60 = document.getElementById('60dias')
@@ -15,48 +17,46 @@
  dias30.addEventListener('click', () => {
     const interes = plazoFijo(monto.value, dias30.value, intereses.value);
     intereses.innerHTML = "$" + interes 
-   const meses = tiempo(tiempo.value)
-   hastaEl.innerHTML = meses
+    hastaEl.innerHTML = (sumar.toLocaleString(DateTime.DATE_SHORT));
   
+  localStorage.setItem('30dias', 30)
    localStorage.setItem("interesGanado", interes)
-    localStorage.setItem("tiempoInvertido", meses )
+    localStorage.setItem("tiempoInvertido", 30 )
     console.log(interes)
-    console.log(meses)
-    
+    console.log(30)
  })
  
 
 
-  //FUNCION PARA CALCULAR 30 DIAS A PARTIR DE LA FECHA ACTUAL
-  function tiempo(){	
+  //UTILIZO LIBRERIA LUXON PARA  CALCULAR 30 DIAS A PARTIR DE LA FECHA ACTUAL
+  const DateTime = luxon.DateTime
+  const hoy = DateTime.now()
+  const sumar = hoy.plus({
    
-    const diasDevolucion = 30;
-    let fechaDevolucion = new Date();
-   
-    fechaDevolucion.setDate(fechaDevolucion.getDate() + diasDevolucion);
-    let diaDevolucion = fechaDevolucion.getDate();
-    let mesDevolucion = fechaDevolucion.getMonth() + 1;
-    let anioDevolucion = fechaDevolucion.getFullYear();
-    let fechaFinal = diaDevolucion + "/" + mesDevolucion + "/" + anioDevolucion
-    return fechaFinal
-  }
-
+        month: 1,
+      
+     });
 
 //FUNCION PARA CALCULAR INTERES A 30 DIAS
     function plazoFijo(monto, dias30, intereses){
       while(resultado.firstChild){
         resultado.removeChild(resultado.firstChild);
     }
+   
     dias30 = 1
     let resultadoFinal = 0
     resultadoFinal = monto * (Math.pow(1+6.25/100, dias30)*6.25/100)/(Math.pow(1+6.25/100, dias30)-1);
+
+    (monto === "" )?  document.getElementById('condicionMonto').innerHTML = "¡Debe ingresar un monto!" : document.getElementById('condicionMonto').innerHTML = ""  ;
    
     resultado.append("$" + resultadoFinal )
+
     localStorage.setItem("ingresoMonto", monto)
     console.log(monto)
     intereses = resultadoFinal - monto
-   
     return intereses 
+   
+    
 }
 
 
@@ -64,28 +64,22 @@
     dias60.addEventListener('click', () => {
     const interes = plazoFijo2(monto.value, dias60.value, intereses.value);
     intereses.innerHTML = "$" + interes 
-    const meses = tiempo2()
-    hastaEl.innerHTML = meses
-    
+    hastaEl.innerHTML = (sumar60.toLocaleString(DateTime.DATE_SHORT));
+    localStorage.setItem('60dias', 60)
     localStorage.setItem("interesGanado", interes)
-    localStorage.setItem("tiempoInvertido", meses )
+    localStorage.setItem("tiempoInvertido", 60 )
     console.log(interes)
-    console.log(meses)
+    console.log(60)
 })
 
-//FUNCION PARA CALCULAR 60 DIAS A PARTIR DE LA FECHA ACTUAL
-    function tiempo2(){	
-   
-    const diasDevolucion = 60;
-    let fechaDevolucion = new Date();
-    fechaDevolucion.setDate(fechaDevolucion.getDate() + diasDevolucion);
-    let diaDevolucion = fechaDevolucion.getDate();
-    let mesDevolucion = fechaDevolucion.getMonth() + 1;
-    let anioDevolucion = fechaDevolucion.getFullYear();
-    let fechaFinal = diaDevolucion + "/" + mesDevolucion + "/" + anioDevolucion
-  
-    return fechaFinal
-}
+//UTILIZO LIBRERIA LUXON PARA CALCULAR 60 DIAS A PARTIR DE LA FECHA ACTUAL
+
+const hoy60 = DateTime.now()
+const sumar60 = hoy.plus({
+ 
+  month: 2,
+    
+   });
 
  //FUNCION PARA CALCULAR INTERES A 60 DIAS
   function plazoFijo2(monto, dias60, intereses,){
@@ -95,6 +89,7 @@
         dias60 = 1
         let resultadoFinal = 0
         resultadoFinal = monto * (Math.pow(1+12.5/100, dias60)*12.5/100)/(Math.pow(1+12.5/100, dias60)-1);
+        (monto === "" )?  document.getElementById('condicionMonto').innerHTML = "¡Debe ingresar un monto!" : document.getElementById('condicionMonto').innerHTML = ""  ;
         resultado.append("$" + resultadoFinal)
         localStorage.setItem("ingresoMonto", monto)
     console.log(monto)
@@ -107,27 +102,21 @@
   dias90.addEventListener('click', () => {
    const interes = plazoFijo3(monto.value, dias90.value, intereses.value);
    intereses.innerHTML = "$" + interes 
-   const meses = tiempo3()
-   hastaEl.innerHTML = meses 
+   
+   hastaEl.innerHTML = (sumar90.toLocaleString(DateTime.DATE_SHORT));
    localStorage.setItem("interesGanado", interes)
-    localStorage.setItem("tiempoInvertido", meses )
+    localStorage.setItem("tiempoInvertido", 90 )
     console.log(interes)
-    console.log(meses)
+    console.log(90)
   })
 
-  //FUNCION PARA CALCULAR 90 DIAS A PARTIR DE LA FECHA ACTUAL
-  function tiempo3(){	
-  const diasDevolucion = 90;
-  let fechaDevolucion = new Date();
+  //UTILIZO LIBRERIA LUXON PARA  CALCULAR 90 DIAS A PARTIR DE LA FECHA ACTUAL
+  const hoy90 = DateTime.now()
+  const sumar90 = hoy.plus({
    
-  fechaDevolucion.setDate(fechaDevolucion.getDate() + diasDevolucion);
-  let diaDevolucion = fechaDevolucion.getDate();
-  let mesDevolucion = fechaDevolucion.getMonth() + 1;
-  let anioDevolucion = fechaDevolucion.getFullYear();
-  let fechaFinal = diaDevolucion + "/" + mesDevolucion + "/" + anioDevolucion
-    
-  return fechaFinal
-}
+    month: 3,
+      
+     });
 
  //FUNCION PARA CALCULAR INTERES A 90 DIAS
 function plazoFijo3(monto, dias90, intereses){
@@ -138,6 +127,7 @@ function plazoFijo3(monto, dias90, intereses){
    
     let resultadoFinal = 0
     resultadoFinal = monto * (Math.pow(1+18.75/100, dias90)*18.75/100)/(Math.pow(1+18.75/100, dias90)-1);
+    (monto === "" )?  document.getElementById('condicionMonto') : document.getElementById('condicionMonto').innerHTML = ""  ;
     resultado.append( "$" + resultadoFinal)
     localStorage.setItem("ingresoMonto", monto)
     console.log(monto)
